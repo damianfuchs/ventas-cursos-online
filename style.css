@@ -1,13 +1,14 @@
 body{
     margin: 0;
     padding: 0;
-    background: url(../imagenes/fondoHome.jpg) no-repeat center top;
+    background: url(../imagenes/fondoHome2.jpg) no-repeat center top;
     background-size: cover;
     font-family: sans-serif;
     height: 100vh;
 }
 
-.cuadro-Login { 
+.cuadro-Login {
+  
     width: 320px;
     height: 420px;
     background: #000;
@@ -18,9 +19,12 @@ body{
     transform: translate(-50%, -50%);
     box-sizing: border-box;
     padding: 70px 30px;
-    border-radius: 15px;
-    
+    border-radius: 10px;
+    background-color: rgba(19, 18, 18, 0.801);
 }
+
+
+
 .cuadro-Login .avatar {
     width: 100px;
     height: 100px;
@@ -66,7 +70,7 @@ body{
     border: none;
     outline: none;
     height: 40px;
-    background: grey;
+    background: rgb(120, 156, 99);
     color: #fff;
     font-size: 14px;
     border-radius: 15px;
