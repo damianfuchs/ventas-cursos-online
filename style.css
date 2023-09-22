@@ -1,7 +1,6 @@
 body{
     margin: 0;
     padding: 0;
-    background: url(../imagenes/fondoHome2.jpg) no-repeat center top;
     background-size: cover;
     font-family: sans-serif;
     height: 100vh;
@@ -74,6 +73,7 @@ body{
     color: #fff;
     font-size: 14px;
     border-radius: 15px;
+    cursor: pointer;
 }
 
 .cuadro-Login a {
@@ -98,22 +98,49 @@ header{
     width: 100%;
 }
 
+
+header div h3{
+    height: 60px;
+    width: 100%;
+    padding: 18px;
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    display: inline-block;
+    color: #fff;
+    font-size: 21px;
+}
+
+h3{
+    align-items: center;
+}
+
 nav ul {
     float: right;
     margin-right: 20px;
+    
 }
 
 nav ul li {
     display: inline-block;
     line-height: 60px;
     margin: 0 5px;
+    
+
 }
 
 nav ul li a {
     color: white;
-    font-size: 14px;
+    font-size: 12px;
     text-transform: uppercase;
-    
+    background-color: rgb(120, 156, 99);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+a:hover {
+    background: none;
+    color: rgb(120, 156, 99);
 }
 
 nav .avatar {
@@ -121,10 +148,7 @@ nav .avatar {
     padding: 0 100px;
 }
 
-a:hover {
-    background: none;
-    color: rgb(120, 156, 99);
-}
+
 
 footer{
     position: absolute;
