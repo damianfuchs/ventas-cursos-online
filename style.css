@@ -84,3 +84,56 @@ body{
     color: darkgray;
 }
 
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+header{
+    background: rgba(12, 12, 12, 0.801);
+    height: 60px;
+    width: 100%;
+}
+
+nav ul {
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+    line-height: 60px;
+    margin: 0 5px;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+    
+}
+
+nav .avatar {
+    height: 60px;
+    padding: 0 100px;
+}
+
+a:hover {
+    background: none;
+    color: rgb(120, 156, 99);
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(12, 12, 12, 0.801);
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+}
+
