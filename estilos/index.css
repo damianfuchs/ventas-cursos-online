@@ -4,6 +4,8 @@ body{
     background-size: cover;
     font-family: sans-serif;
     height: 100vh;
+    background-image: url(../imagenes/fondoHome2.jpg);
+    background-repeat: no-repeat;
 }
 
 .cuadro-Login {
