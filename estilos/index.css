@@ -8,6 +8,12 @@ body{
     background-repeat: no-repeat;
 }
 
+.title-container{
+    padding: 70px 30px;
+    text-align: center;
+    color:white;
+}
+
 .cuadro-Login {
   
     width: 320px;
