@@ -30,7 +30,13 @@ body{
     background-color: rgba(19, 18, 18, 0.801);
 }
 
+.bg-body-tertiary{
+    height: 50px !important;
+}
 
+.navbar{
+    padding: 0rem !important;
+}
 
 .cuadro-Login .avatar {
     width: 100px;
@@ -84,6 +90,10 @@ body{
     cursor: pointer;
 }
 
+.cuadro-Login input[type="submit"]:hover{
+    background: rgb(144, 190, 117);
+}
+
 .cuadro-Login a {
     font-family: sans-serif;
     text-decoration: none;
@@ -101,7 +111,6 @@ body{
 }
 
 header{
-    background: rgba(12, 12, 12, 0.801);
     height: 60px;
     width: 100%;
 }
@@ -122,41 +131,6 @@ header div h3{
 h3{
     align-items: center;
 }
-
-nav ul {
-    float: right;
-    margin-right: 20px;
-    
-}
-
-nav ul li {
-    display: inline-block;
-    line-height: 60px;
-    margin: 0 5px;
-    
-
-}
-
-nav ul li a {
-    color: white;
-    font-size: 12px;
-    text-transform: uppercase;
-    background-color: rgb(120, 156, 99);
-    padding: 5px;
-    border-radius: 5px;
-}
-
-a:hover {
-    background: none;
-    color: rgb(120, 156, 99);
-}
-
-nav .avatar {
-    height: 60px;
-    padding: 0 100px;
-}
-
-
 
 footer{
     position: absolute;
