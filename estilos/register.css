@@ -1,0 +1,11 @@
+/* Estilo para el fondo semitransparente */
+.custom-card {
+    background-color: rgba(59, 59, 59, 0.8) !important; /* Fondo semitransparente */
+    padding: 20px !important; /* Espacio interior */
+    border-radius: 10px !important; /* Bordes redondeados */
+}
+
+/* Espacio entre campos */
+.form-group {
+    margin-bottom: 15px !important; /* Espaciado entre campos */
+}
