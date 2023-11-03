@@ -29,11 +29,13 @@
 ?>
 
 <div class="container mt-5">
+ 
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="custom-card card">
+            <img class="avatar"src="imagenes/logo.png" alt="logo">
                 <div class="card-header">
-                    <h1 class="text-center text-white">Registro de Usuario</h1>
+                    <h1 class="text-center text-white">REGISTRARSE</h1>
                 </div>
                 <div class="card-body">
                     <form>
@@ -53,7 +55,7 @@
                             <label for="confirmPassword">Confirmar Contraseña:</label>
                             <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar Contraseña">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+                        <button type="button" class="c btn-outline-success">Registrarse</button>
                     </form>
                 </div>
             </div>

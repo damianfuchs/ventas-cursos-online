@@ -1,11 +1,91 @@
 /* Estilo para el fondo semitransparente */
 .custom-card {
-    background-color: rgba(59, 59, 59, 0.8) !important; /* Fondo semitransparente */
+    background-color: rgba(19, 18, 18, 0.801) !important; /* Fondo semitransparente */
     padding: 20px !important; /* Espacio interior */
-    border-radius: 10px !important; /* Bordes redondeados */
+    border-radius: 60px 0px 60px 0px !important; /* Bordes redondeados */
+    font-family: 'Roboto', sans-serif !important;
+
 }
+
 
 /* Espacio entre campos */
 .form-group {
     margin-bottom: 15px !important; /* Espaciado entre campos */
+}
+
+
+.card-header{
+    border: none !important;
+}
+
+.card-header h1{
+    margin-top: 5%;
+}
+
+.container .avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+.card {
+ 
+    --bs-card-cap-padding-y: 2rem !important;
+}
+
+.container{
+    width: 900px !important;
+}
+
+.container h1{
+    font-family: 'Josefin Sans', sans-serif !important;
+    font-size: 30px !important;
+    
+}
+
+.form-group input{
+    outline: 0 none !important;
+    padding: 0 !important;
+    border: none !important;
+    border-bottom: 1px solid #fff !important;
+    background: transparent !important;
+    height: 40px !important;
+    color: #fff !important;
+    font-size: 16px !important;
+    border-bottom-left-radius: 0% !important;
+    border-bottom-right-radius: 0% !important;   
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.form-group input:focus{
+    box-shadow: 0 0 5px #9df3c1 !important;
+    border: 2px solid #9df3c1 !important;  
+    border-radius: 8px 0px 8px 0px !important;
+}
+
+::placeholder {
+    color: rgb(110, 110, 110) !important;
+    position: absolute !important;
+    left: 0px !important;
+    font-size: 17px;
+}
+
+.container .btn{
+    border-radius: 15px 0px 15px 0px !important; /* Bordes redondeados */
+    background: rgb(120, 156, 99);
+    color: #fff;
+    border: none;
+}
+
+
+.container .btn:hover{
+    background: rgb(144, 190, 117) !important;
+
+}
+
+.nav-link:hover {
+    color: rgb(144, 190, 117) !important;
 }

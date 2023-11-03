@@ -2,7 +2,7 @@ body{
     margin: 0;
     padding: 0;
     background-size: cover;
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif !important;
     height: 100vh;
     background-image: url(../imagenes/fondoHome2.jpg);
     background-repeat: no-repeat;
@@ -15,9 +15,8 @@ body{
 }
 
 .cuadro-Login {
-  
-    width: 320px;
-    height: 420px;
+    width: 370px;
+    height: 570px;
     background: #000;
     color: #fff;
     top: 50%;
@@ -26,7 +25,7 @@ body{
     transform: translate(-50%, -50%);
     box-sizing: border-box;
     padding: 70px 30px;
-    border-radius: 10px;
+    border-radius: 60px 0px 60px 0px !important; /* Bordes redondeados */
     background-color: rgba(19, 18, 18, 0.801);
 }
 
@@ -45,27 +44,31 @@ body{
     position: absolute;
     top: -50px;
     left: calc(50% - 50px);
-    
 }
 
 .cuadro-Login h1 {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 30px;
     margin: 0;
     padding: 0 0 20px;
     text-align: center;
-    font-size: 22px;
 }
 
 .cuadro-Login label {
     margin: 0;
     padding: 0;
-    font-weight: bold;
     display: block;
 }
 
 .cuadro-Login input{
     width: 100%;
     margin-bottom: 20px;
+}
 
+.cuadro-Login input:focus{
+    box-shadow: 0 0 5px #9df3c1 !important;
+    border: 2px solid #9df3c1 !important;
+    border-radius: 8px 0px 8px 0px;
 }
 
 .cuadro-Login input[type="text"], 
@@ -88,6 +91,7 @@ body{
     font-size: 14px;
     border-radius: 15px;
     cursor: pointer;
+    border-radius: 15px 0px 15px 0px !important; /* Bordes redondeados */
 }
 
 .cuadro-Login input[type="submit"]:hover{
@@ -95,7 +99,7 @@ body{
 }
 
 .cuadro-Login a {
-    font-family: sans-serif;
+    font-family: Verdana !important;
     text-decoration: none;
     font-size: 12px;
     line-height: 20px;
@@ -114,7 +118,6 @@ header{
     height: 60px;
     width: 100%;
 }
-
 
 header div h3{
     height: 60px;
@@ -143,3 +146,10 @@ footer{
     font-size: 14px;
 }
 
+.cuadro-Login a:hover {
+    color: rgb(144, 190, 117) !important;
+}
+
+.nav-link:hover {
+    color: rgb(144, 190, 117) !important;
+}
