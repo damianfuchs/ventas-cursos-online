@@ -144,6 +144,7 @@ footer{
     color: #fff;
     text-align: center;
     font-size: 14px;
+    margin-top: -50px !important;
 }
 
 .cuadro-Login a:hover {
@@ -153,3 +154,5 @@ footer{
 .nav-link:hover {
     color: rgb(144, 190, 117) !important;
 }
+
+
