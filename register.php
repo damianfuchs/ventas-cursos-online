@@ -49,18 +49,32 @@
                         </div>
                         <div class="form-group text-white">
                             <label for="password">Contraseña:</label>
-                            <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                            <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
                         </div>
                         <div class="form-group text-white">
                             <label for="confirmPassword">Confirmar Contraseña:</label>
-                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar Contraseña">
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar Contraseña" oninput="validarEnTiempoReal()" data-toggle="tooltip" data-placement="right" title="Las contraseñas no coinciden">
                         </div>
-                        <button type="button" class="c btn-outline-success">Registrarse</button>
+                        <div class="form-row">
+
+                            <div class="col-md-6 mb-3">
+                                <label for="codigo">Captcha:</label>
+                                <br>
+                                <img src="includes/rdnimg.php" >
+                                <input type="text" name="rand_code" value="">
+                            </div>
+                        </div>
+                        <button onclick="validarContraseñas()" type="button" class="c btn-outline-success">Registrarse</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="includes/js/registerCheckPassword.js"></script>
 
 <?php include('includes/footer.php'); ?>
