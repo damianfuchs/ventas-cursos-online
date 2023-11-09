@@ -20,10 +20,10 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav navbar-right">
         <li class="nav-item">
-          <a class="nav-link" href="#">Entrar</a>
+          <a class="nav-link" href="index.php">Entrar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Crear Cuenta</a>
+          <a class="nav-link" href="register.php">Crear Cuenta</a>
         </li>
       </ul>
     </div>
