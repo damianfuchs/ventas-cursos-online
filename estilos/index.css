@@ -144,7 +144,19 @@ footer{
     color: #fff;
     text-align: center;
     font-size: 14px;
-    margin-top: -50px !important;
+    margin-top: 160px !important;
+}
+
+footer h3{
+    padding: 0;
+    font-size: 15px;
+    border: none;
+    margin: 0;
+    font-style: italic;
+}
+
+footer p{
+    margin: 0;
 }
 
 .cuadro-Login a:hover {

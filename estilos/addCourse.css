@@ -1,0 +1,41 @@
+.custom-form{
+    background-color: rgba(19, 18, 18, 0.801) !important; /* Fondo semitransparente */
+    padding: 20px !important; /* Espacio interior */
+    border-radius: 60px 0px 60px 0px !important; /* Bordes redondeados */
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.custom-form h1{
+    color: white;
+}
+
+.custom-form label{
+    color: white;
+}
+
+.custom-form textarea {
+    padding: 0;
+    background: transparent;
+    color: #fff;
+    height: 10px;
+    resize: none;
+    border-top: none;    /* Elimina el borde superior */
+    border-right: none;  /* Elimina el borde derecho */
+    border-left: none;   /* Elimina el borde izquierdo */
+    border-bottom: 1px solid #ccc; /* Puedes mantener el borde inferior o personalizarlo según tus necesidades */
+    border-radius: 8px 8px 0px 0px !important;
+}
+
+
+.custom-form textarea:focus{
+    background-color: transparent; /* Cambia el fondo a blanco cuando el textarea está enfocado */
+    /* Puedes ajustar el color de fondo que desees cuando el textarea está enfocado */
+    box-shadow: 0 0 5px #9df3c1 !important;
+    border: 2px solid #9df3c1 !important;  
+    border-radius: 8px 0px 8px 0px !important;
+    color: white;
+}
+
+.card-body input[type="text"]{
+    color: #fff;
+}

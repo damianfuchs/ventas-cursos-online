@@ -7,11 +7,10 @@
     <link rel="stylesheet" href="estilos/index.css">
 </head>
 <footer>
-    <div class="cuadro-footer">
-        <h3>Programacion Avanzada </h3>
-    </div>
-
     <div class="textoAbajo">
+        <h3>Programacion Avanzada</h3>
         <p>Copyright &copy;2023 Damian Fuchs, Pablo Gabarro, Matias Bilche</p>
+
     </div>
+   
 </footer>

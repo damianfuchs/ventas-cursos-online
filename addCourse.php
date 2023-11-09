@@ -2,6 +2,11 @@
 
 <?php include('includes/header.php'); ?>
 
+
+<link rel="stylesheet" href="estilos/index.css">
+<link rel="stylesheet" href="estilos/register.css">
+<link rel="stylesheet" href="estilos/addCourse.css">
+
 <link rel="stylesheet" href="estilos/index.css">
 <link rel="stylesheet" href="estilos/register.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -35,7 +40,7 @@ if (isset($_SESSION['error'])) {
         <div class="col-lg-6 col-md-8">
             <div class="custom-form card">
                 <div class="card-header">
-                    <h1 class="text-center">Agregar Curso</h1>
+                    <h1 class="text-center">AGREGAR CURSO</h1>
                 </div>
                 <div class="card-body">
                     <form action="includes/mysqlAddCourse.php" method="post">
