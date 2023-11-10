@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 
-<?php include('includes/header_inicio.php'); ?>
+<?php include('includes/header_usuario.php'); ?>
 <link rel="stylesheet" href="./estilos/index.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
@@ -32,6 +32,10 @@ if(isset($_SESSION['mensaje_error'])){
     necesidades, cubriendo desde Python hasta JavaScript y más. Nuestros instructores expertos te guiarán a través de lecciones prácticas y proyectos emocionantes. Únete a 
     nuestra comunidad colaborativa y comienza tu viaje hacia el dominio de la programación. ¡Prepárate para escribir el código de tu éxito! ¡Comienza hoy mismo!</p><br>
     
+    <form action="cart.php" method="post">
+        <input type="submit" value="Ver Cursos!" formaction="cart.php">
+    </form>
+
 </div>
 
 

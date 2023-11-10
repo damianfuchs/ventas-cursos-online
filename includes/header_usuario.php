@@ -23,7 +23,7 @@
           <a class="nav-link" href="inicio.php">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="listaCursos.php">Admin Cursos</a>
+          <a class="nav-link" href="misCursos.php">Mis Cursos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Cerrar Sesión</a>

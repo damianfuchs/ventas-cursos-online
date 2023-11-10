@@ -21,3 +21,17 @@
     top: -50px !important;
     left: calc(50% - 50px) !important;
 }
+
+.contenedorInicio input[type="submit"] {
+    width: 20%;
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+    height: 40px;
+    background: rgb(120, 156, 99);
+    color: #fff;
+    font-size: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    border-radius: 15px 0px 15px 0px !important; /* Bordes redondeados */
+}
