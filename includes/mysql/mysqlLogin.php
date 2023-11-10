@@ -1,28 +1,50 @@
 <?php
+require_once 'conexionDB.php';
+require_once '../alert.php';
+ini_set('display_errors', 1);
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!empty($_POST['rand_code']) ){
-        if ( $_POST['rand_code']==$_SESSION['rand_code'] ){
-            $usuario_valido = 'fcytuader';
-            $contrasena_valida = 'programacionavanzada';
+if(!empty($_POST) && !empty($_SESSION))
+{
+    if(ctype_alnum($_POST['rand_code']) && (htmlentities($_POST['rand_code'] == $_SESSION['rand_code']))){
+        $con = new connect('localhost','root','','TPPA');
+        try{
+            $dbConnection = $con->conectar();
+        } catch (Exception $e){
+            $_SESSION['unexpected_error']="Ocurrió un error inesperado.\nIntente mas tarde.";
+            header('Location: ../../index.php');
+        }
+        $db = $con->conectar();
+        $username = stripcslashes($_POST['username']);
+        $password = stripcslashes($_POST['password']);
+        $userEsc = mysqli_real_escape_string($db, $username);
+        $passwEsc = mysqli_real_escape_string($db, $password);
 
-            $usuario_ingresado = $_POST['usuario'];
-            $contrasena_ingresada = $_POST['contraseña'];
+        $stmt = $db->prepare("SELECT username, password, isAdmin FROM usuarios WHERE username = ?");
+        $stmt->bind_param("s", $userEsc);
+        $stmt->execute();
+        $stmt->store_result();
 
-            if ($usuario_ingresado === $usuario_valido && $contrasena_ingresada === $contrasena_valida) {
-                $_SESSION['mensaje_exito'] = 'Inicio de sesión exitoso.';
+        $stmt->bind_result($user_db, $pass_db, $isAdmin_db);
+
+        if ($stmt->num_rows == 1){
+            $stmt->fetch();
+            if (password_verify($passwEsc, $pass_db)) 
+            {
+                $_SESSION['username'] = $_POST['username'];
+                $_SESSION['op'] = $isAdmin_db;
+                header('Location: ../../inicio.php');
             } else {
-                $_SESSION['mensaje_error'] = 'Credenciales incorrectas. Inténtalo de nuevo.';
+                $_SESSION['wrong_credentials'] = "Usuario y/o contraseña incorrectos.";
+                header('Location: ../../index.php');
             }
         } else {
-            $_SESSION['mensaje_error'] = 'Credenciales incorrectas. Inténtalo de nuevo.';
+            $_SESSION['wrong_credentials'] = "Usuario y/o contraseña incorrectos.";
+            header('Location: ../../index.php');
         }
     } else {
-        $_SESSION['mensaje_error'] = 'Credenciales incorrectas. Inténtalo de nuevo.';
+        $_SESSION['captcha_error'] = "Credenciales o captcha incorrectos.";
+        header('Location: ../../index.php');
     }
-    
 }
-
-header('Location: inicio.php');
 ?>

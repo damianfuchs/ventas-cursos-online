@@ -24,6 +24,11 @@ if (isset($_SESSION['register_success'])) {
     unset($_SESSION['user_already_exists']);
     $alerta = new alerta($user_exists);
     $alerta->informar_error();
+} elseif (isset($_SESSION['unexpected_error'])){
+    $unexpected_error = $_SESSION['unexpected_error'];
+    unset($_SESSION['unexpected_error']);
+    $alerta = new alerta($unexpected_error);
+    $alerta->informar_error();
 }
 ?>
 

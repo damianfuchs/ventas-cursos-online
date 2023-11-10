@@ -6,12 +6,13 @@ session_start();
 
 if(!empty($_POST) && !empty($_SESSION))
 {
-    if($_POST['rand_code']==$_SESSION['rand_code']){
+    if(ctype_alnum($_POST['rand_code']) && (htmlentities($_POST['rand_code'] == $_SESSION['rand_code']))){
         $con = new connect('localhost','root','','TPPA');
         try{
             $dbConnection = $con->conectar();
         } catch (Exception $e){
-            echo '<script language="javascript">alert('.$e.');</script>';
+            $_SESSION['unexpected_error']="Ocurrió un error inesperado.\nIntente mas tarde.";
+            header('Location: ../../register.php');
         }
         $userExistente=$_POST['username'];
         $exists="SELECT username FROM usuarios WHERE username = '$userExistente'";
@@ -27,11 +28,12 @@ if(!empty($_POST) && !empty($_SESSION))
                 $userEsc = mysqli_real_escape_string($dbConnection,$user);
                 $emailEsc = mysqli_real_escape_string($dbConnection,$email);
                 $passwordEsc = mysqli_real_escape_string($dbConnection,$password);
+                $isAdmin = 0;
 
                 $hash = password_hash($passwordEsc, PASSWORD_BCRYPT);
 
-                $stmt = $dbConnection->prepare('INSERT INTO usuarios (username, email, password) VALUES ( ?, ?, ?)');
-                $stmt->bind_param('sss', $userEsc, $emailEsc, $hash);
+                $stmt = $dbConnection->prepare('INSERT INTO usuarios (username, email, password, isAdmin) VALUES ( ?, ?, ?, ?)');
+                $stmt->bind_param('sssi', $userEsc, $emailEsc, $hash, $isAdmin);
                 $stmt->execute();
                 $stmt->close();
                 $_SESSION['register_success']="Usuario registrado correctamente.\nSeras redireccionado a la página principal.";
@@ -44,6 +46,9 @@ if(!empty($_POST) && !empty($_SESSION))
             $_SESSION['user_already_exists']="El usuario ya existe.";
             header('Location: ../../register.php');
         }
+    } else{
+        $_SESSION['fields_error']="Error en los datos ingresados, reviselos y vuelva a intentarlo.";
+        header('Location: ../../register.php');
     }
   
     
