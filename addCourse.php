@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 
-<?php include('includes/header.php'); ?>
+<?php include('includes/header_inicio.php'); ?>
 
 
 <link rel="stylesheet" href="estilos/index.css">

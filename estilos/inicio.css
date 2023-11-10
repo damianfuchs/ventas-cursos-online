@@ -1,0 +1,37 @@
+.contenedorInicio {
+    width: 670px;
+    height: 570px;
+    background: #000;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border-radius: 60px 0px 60px 0px !important; /* Bordes redondeados */
+    background-color: rgba(19, 18, 18, 0.801);
+}
+
+.avatar {
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50% !important;
+    position: absolute !important;
+    top: -50px !important;
+    left: calc(50% - 50px) !important;
+}
+
+.contenedorInicio input[type="submit"] {
+    width: 20%;
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+    height: 40px;
+    background: rgb(120, 156, 99);
+    color: #fff;
+    font-size: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    border-radius: 15px 0px 15px 0px !important; /* Bordes redondeados */
+}
