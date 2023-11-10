@@ -20,13 +20,10 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav navbar-right">
         <li class="nav-item">
-          <a class="nav-link" href="#">Inicio</a>
+          <a class="nav-link" href="inicio.php">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Cursos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contactos</a>
+          <a class="nav-link" href="listaCursos.php">Cursos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Cerrar Sesión</a>
