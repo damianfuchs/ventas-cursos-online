@@ -68,7 +68,7 @@
         <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
         <!-- Custom JS -->
-        <script src="main.js"></script>
+        <script src="includes/js/datatable.js"></script>
     </body>
 </html>
 

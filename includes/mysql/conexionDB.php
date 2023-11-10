@@ -18,9 +18,7 @@ class connect{
     $db = new mysqli($this->dbHost, $this->dbUsername, $this->dbPassword, $this->dbName);
     if($db->connect_error)
     {
-        require_once 'index.php';
-        $alerta = new alerta("Error al conectar con la base de datos");
-        $alerta->informar_error();
+        throw new Exception('Error al conectar a la base de datos.');
     }
     return $db;
     }

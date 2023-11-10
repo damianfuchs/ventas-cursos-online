@@ -30,7 +30,7 @@ if (isset($_SESSION['not_logged'])) {
 <div class="cuadro-Login">
       <img class="avatar"src="imagenes/logo.png" alt="logo">
         <h1>ENTRAR</h1>
-        <form action="login.php" method="post">
+        <form action="/includes/mysqlLogin.php" method="post">
 
             <label for="usuario">Usuario</label>
             <input type="text" name="usuario" placeholder="Ingrese su Usuario">
