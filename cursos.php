@@ -1,6 +1,12 @@
 <?php session_start(); ?>
 
-<?php include('includes/header_usuario.php'); ?>
+<?php
+if(isset($_SESSION('op'))){
+    include('includes/header_inicio.php');
+} else{
+    include('includes/header_usuario.php');
+}
+?>
 
 <head><title>Cursos</title></head>
 
