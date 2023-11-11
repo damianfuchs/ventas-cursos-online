@@ -7,6 +7,8 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <link rel="stylesheet" href='estilos/listaCursos.css'>
 
+<head><title>Panel de Cursos</title></head>
+
 <?php 
 
 require_once 'includes/mysql/mysqlGetCursos.php';
