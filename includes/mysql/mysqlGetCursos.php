@@ -4,7 +4,6 @@ ini_set('display_errors', 1);
 
 function consultarCursos() {
     if(!empty($_SESSION)){
-        if(isset($_SESSION['op'])){
             $con = new connect('localhost','root','','TPPA');
             try{
                 $dbConnection = $con->conectar();
@@ -22,11 +21,6 @@ function consultarCursos() {
             }
 
             return $data;
-        } else {
-            $_SESSION['op_error_title'] = "Error";
-            $_SESSION['op_error'] = "No tienes permiso de administrador.";
-            header('Location: ../../inicio.php');
-        }
     }
 }
 

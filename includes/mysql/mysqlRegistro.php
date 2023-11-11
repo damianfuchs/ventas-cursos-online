@@ -1,6 +1,5 @@
 <?php
 require_once 'conexionDB.php';
-require_once '../alert.php';
 ini_set('display_errors', 1); 
 session_start();
 
