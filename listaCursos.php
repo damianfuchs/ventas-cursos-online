@@ -9,13 +9,21 @@
 
 <head><title>Panel de Cursos</title></head>
 
-<?php 
+<?php
 
 require_once 'includes/mysql/mysqlGetCursos.php';
 require_once 'includes/alert.php';
 // Llama a la función para obtener los datos
 $data = consultarCursos();
-if (isset($_SESSION['unexpected_error'])){
+if(!isset($_SESSION['username'])){
+    $_SESSION['not_signed_title'] = "Error";
+    $_SESSION['not_signed'] = "Debe iniciar sesión.";
+    header('Location: index.php');
+}elseif(!isset($_SESSION['op'])){
+    $_SESSION['op_error_title'] = "Error";
+    $_SESSION['op_error'] = "No posee permisos.";
+    header('Location: inicio.php');
+} elseif (isset($_SESSION['unexpected_error'])){
     $unexpected_error_title = $_SESSION['unexpected_error_title'];
     $unexpected_error = $_SESSION['unexpected_error'];
     unset($_SESSION['unexpected_error_title']);

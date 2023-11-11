@@ -12,6 +12,7 @@ if(isset($_SESSION['username']) && isset($_SESSION['op'])){
 <head><title>Inicio</title></head>
 
 <?php
+require_once 'includes/alert.php';
 if(!isset($_SESSION['username'])){
     $_SESSION['not_signed_title'] = "Error";
     $_SESSION['not_signed'] = "Debe iniciar sesión.";

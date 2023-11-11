@@ -15,7 +15,15 @@
 
 <?php
 require_once 'includes/alert.php';
-if (isset($_SESSION['error'])) {
+if(!isset($_SESSION['username'])){
+    $_SESSION['not_signed_title'] = "Error";
+    $_SESSION['not_signed'] = "Debe iniciar sesión.";
+    header('Location: index.php');
+}elseif(!isset($_SESSION['op'])){
+    $_SESSION['op_error_title'] = "Error";
+    $_SESSION['op_error'] = "No posee permisos.";
+    header('Location: inicio.php');
+} elseif (isset($_SESSION['error'])) {
     $error = $_SESSION['error'];
     unset($_SESSION['error']);
     $alerta = new alerta("Error", $error);

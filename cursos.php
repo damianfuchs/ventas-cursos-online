@@ -1,10 +1,10 @@
 <?php session_start(); ?>
 
 <?php
-if(isset($_SESSION('op'))){
-    include('includes/header_inicio.php');
-} else{
+if(!isset($_SESSION['op'])){
     include('includes/header_usuario.php');
+} else{
+    include('includes/header_inicio.php');
 }
 ?>
 
