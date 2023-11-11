@@ -57,7 +57,7 @@ if (isset($_SESSION['wrong_credentials'])) {
             <input type="submit" value="Entrar">
 
             <a href="#">¿Has olvidado la contraseña?</a><br>
-            <a href="#">Crear una Cuenta</a>
+            <a href="register.php">Crear una Cuenta</a>
         </form>
     </div>
 </body>
