@@ -6,6 +6,10 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 <?php
+require_once 'includes/mysql/mysqlGetCursos.php';
+require_once 'includes/alert.php';
+// Llama a la función para obtener los datos
+$data = consultarCursos();
 /*if (isset($_SESSION['not_logged'])) {
     $not_logged = $_SESSION['not_logged'];
     unset($_SESSION['not_logged']);
@@ -26,44 +30,27 @@
   </svg>'.$logged_out.'</div>';
 }*/
 ?>
-
+<body class="d-flex flex-column min-vh-100">
 <div class="container mt-5">
     <h1 class="text-center text-white">Catálogo de Cursos</h1>
+
+    
     
     <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <img src="imagenes/cursoPython.jpg" class="card-img-top" alt="Curso Python">
-                <div class="card-body">
-                    <h5 class="card-title">Curso de Python</h5>
-                    <p class="card-text">¡Aprendé a programar en Python desde 0 con este impresionante curso!</p>
-                    <a href="#" class="btn btn-primary">Inscribirse</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4">
-            <div class="card">
-                <img src="imagenes/cursoCSharp.jpg" class="card-img-top" alt="Curso C#">
-                <div class="card-body">
-                    <h5 class="card-title">Curso de C#</h5>
-                    <p class="card-text">¡Aprendé a programar en C# desde 0 con este impresionante curso!</p>
-                    <a href="#" class="btn btn-primary">Inscribirse</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4">
-            <div class="card">
-                <img src="imagenes/cursoJS.jpg" class="card-img-top" alt="Curso JS">
-                <div class="card-body">
-                    <h5 class="card-title">Curso de JavaScript</h5>
-                    <p class="card-text">¡Aprendé a programar en JavaScript desde 0 con este impresionante curso!</p>
-                    <a href="#" class="btn btn-primary">Inscribirse</a>
-                </div>
-            </div>
-        </div>
+        <?php
+        // Imprime los datos en la tabla
+        foreach ($data as $row) {
+            echo "<div class=\"row\"><div class=\"col-md-4\"><div class=\"card mb-3\">";
+            echo "<img src=\"{$row['imagenCurso']}\" class=\"card-img-top img-fluid\" alt=\"Curso Python\">";
+            echo "<div class=\"card-body\">";
+            echo "<h5 class=\"card-title\">{$row['nombreCurso']}</h5>";
+            echo "<p class=\"card-text\">{$row['descripcionCurso']}</p>";
+            echo "<a href=\"#\" class=\"btn btn-primary\">Inscribirse</a>";
+            echo "</div></div></div>";
+        }
+    ?>
     </div>
 </div>
+</body>
 
 <?php include('includes/footer.php'); ?>

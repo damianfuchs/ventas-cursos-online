@@ -1,6 +1,7 @@
 <html>
     <head>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
 </html>
 
@@ -8,38 +9,39 @@
 
 class alerta{
 
-    protected $text;
+    protected $title;
+    protected $desc;
 
-    public function __construct($texto)
+    public function __construct($titulo, $descripcion)
     {
-        $this->text = $texto;
+        $this->title = $titulo;
+        $this->desc = $descripcion;
     }
 
     public function informar_error(){
-        ?>
-
-        <html>
-            <script type = "text/javascript">
-                swal('<?php echo $this->text?>','','error');
-                </script>
-        </html>
-<?php
+        echo '<script type="text/javascript">
+            $(document).ready(function(){
+                Swal.fire({
+                    title: \''.$this->title.'\',
+                    text: \''.$this->desc.'\',
+                    icon: "error"
+                });
+            });
+        </script>';
     }
 
     public function informar_approv(){
-        ?>
 
-        <html>
-            <script type = "text/javascript">
-                swal('<?php echo $this->text?>','','success');
-                </script>
-        </html>
-<?php
+        echo '<script type="text/javascript">
+            $(document).ready(function(){
+                Swal.fire({
+                    title: \''.$this->title.'\',
+                    text: \''.$this->desc.'\',
+                    icon: "success"
+                });
+            });
+        </script>';
     }
 
 }
-
-
-
-
 ?>

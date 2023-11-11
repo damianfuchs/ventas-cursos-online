@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if (isset($_SESSION['mensaje_exito'])){
-    unset($_SESSION['mensaje_exito']);
-    $_SESSION['logged_out'] = "Se ha deslogueado con éxito.";
+if (isset($_SESSION['username']) && isset($_SESSION['op'])){
+    unset($_SESSION['username']);
+    unset($_SESSION['op']);
 }
 
 header('Location: index.php');

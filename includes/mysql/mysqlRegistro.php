@@ -11,7 +11,8 @@ if(!empty($_POST) && !empty($_SESSION))
         try{
             $dbConnection = $con->conectar();
         } catch (Exception $e){
-            $_SESSION['unexpected_error']="Ocurrió un error inesperado.\nIntente mas tarde.";
+            $_SESSION['unexpected_error_title']="Ocurrió un error inesperado";
+            $_SESSION['unexpected_error']="Intente mas tarde.";
             header('Location: ../../register.php');
         }
         $userExistente=$_POST['username'];
@@ -36,18 +37,22 @@ if(!empty($_POST) && !empty($_SESSION))
                 $stmt->bind_param('sssi', $userEsc, $emailEsc, $hash, $isAdmin);
                 $stmt->execute();
                 $stmt->close();
-                $_SESSION['register_success']="Usuario registrado correctamente.\nSeras redireccionado a la página principal.";
+                $_SESSION['register_success_title']="Usuario registrado correctamente.";
+                $_SESSION['register_success']="Seras redireccionado a la página principal.";
                 header('Location: ../../register.php');
             }else{
-                $_SESSION['fields_error']="Error en los datos ingresados, reviselos y vuelva a intentarlo.";
+                $_SESSION['fields_error_title']="Error en los datos ingresados.";
+                $_SESSION['fields_error']="Reviselos y vuelva a intentarlo.";
                 header('Location: ../../register.php');
             }
         } else{
+            $_SESSION['user_already_exists_title']="Error";
             $_SESSION['user_already_exists']="El usuario ya existe.";
             header('Location: ../../register.php');
         }
     } else{
-        $_SESSION['fields_error']="Error en los datos ingresados, reviselos y vuelva a intentarlo.";
+        $_SESSION['fields_error_title']="Error en los datos ingresados.";
+        $_SESSION['fields_error']="Reviselos y vuelva a intentarlo.";
         header('Location: ../../register.php');
     }
   

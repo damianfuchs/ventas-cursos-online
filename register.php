@@ -9,29 +9,37 @@
 <?php
 require_once 'includes/alert.php';
 if (isset($_SESSION['register_success'])) {
+    $registered_title = $_SESSION['register_success_title'];
     $registered = $_SESSION['register_success'];
+    unset($_SESSION['register_success_title']);
     unset($_SESSION['register_success']);
-    $alerta = new alerta($registered);
+    $alerta = new alerta($registered_title, $registered);
     $alerta->informar_approv();
     header('refresh:5;url=index.php');
 } elseif (isset($_SESSION['fields_error'])) {
-    $mensaje_error = $_SESSION['fields_error'];
+    $fields_error_title = $_SESSION['fields_error_title'];
+    $fields_error = $_SESSION['fields_error'];
+    unset($_SESSION['fields_error_title']);
     unset($_SESSION['fields_error']);
-    $alerta = new alerta($mensaje_error);
+    $alerta = new alerta($fields_error_title, $fields_error);
     $alerta->informar_error();
 } elseif (isset($_SESSION['user_already_exists'])){
+    $user_exists_title = $_SESSION['user_already_exists_title'];
     $user_exists = $_SESSION['user_already_exists'];
+    unset($_SESSION['user_already_exists_title']);
     unset($_SESSION['user_already_exists']);
-    $alerta = new alerta($user_exists);
+    $alerta = new alerta($user_exists_title, $user_exists);
     $alerta->informar_error();
 } elseif (isset($_SESSION['unexpected_error'])){
+    $unexpected_error_title = $_SESSION['unexpected_error_title'];
     $unexpected_error = $_SESSION['unexpected_error'];
+    unset($_SESSION['unexpected_error_title']);
     unset($_SESSION['unexpected_error']);
-    $alerta = new alerta($unexpected_error);
+    $alerta = new alerta($unexpected_error_title, $unexpected_error);
     $alerta->informar_error();
 }
 ?>
-
+<body class="d-flex flex-column min-vh-100">
 <div class="container mt-5">
  
     <div class="row justify-content-center">
@@ -75,6 +83,7 @@ if (isset($_SESSION['register_success'])) {
         </div>
     </div>
 </div>
+</body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

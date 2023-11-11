@@ -13,7 +13,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
             <img src="imagenes/logo.png" alt="Logo" width="36" height="36" class="d-inline-block align-text-top">
-            <a class="navbar-brand" href="#">Cursos Online</a>
+            <a class="navbar-brand text-white" href="#">Cursos Online</a>
             </a>
         </div>
     </nav>
@@ -21,6 +21,9 @@
       <ul class="navbar-nav navbar-right">
         <li class="nav-item">
           <a class="nav-link" href="inicio.php">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cursos.php">Cursos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="misCursos.php">Mis Cursos</a>

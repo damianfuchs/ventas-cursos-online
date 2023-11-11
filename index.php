@@ -8,23 +8,29 @@
 <?php
 require_once 'includes/alert.php';
 if (isset($_SESSION['wrong_credentials'])) {
+  $wrong_credentials_title = $_SESSION['wrong_credentials_title'];
   $wrong_credentials = $_SESSION['wrong_credentials'];
+  unset($_SESSION['wrong_credentials_title']);
   unset($_SESSION['wrong_credentials']);
-  $alert = new alerta($wrong_credentials);
+  $alert = new alerta($wrong_credentials_title, $wrong_credentials);
   $alert->informar_error();
 } elseif (isset($_SESSION['captcha_error'])) {
+  $captcha_error_title = $_SESSION['captcha_error_title'];
   $captcha_error = $_SESSION['captcha_error'];
+  unset($_SESSION['captcha_error_title']);
   unset($_SESSION['captcha_error']);
-  $alert = new alerta($captcha_error);
+  $alert = new alerta($captcha_error_title, $captcha_error);
   $alert->informar_error();
 } elseif (isset($_SESSION['not_signed'])){
+  $not_signed_title = $_SESSION['not_signed_title'];
   $not_signed = $_SESSION['not_signed'];
+  unset($_SESSION['not_signed_title']);
   unset($_SESSION['not_signed']);
-  $alert = new alerta($not_signed);
+  $alert = new alerta($not_signed_title, $not_signed);
   $alert->informar_error();
 }
 ?>
-
+<body class="d-flex flex-column min-vh-100">
 <div class="cuadro-Login">
       <img class="avatar"src="imagenes/logo.png" alt="logo">
         <h1>ENTRAR</h1>
@@ -52,5 +58,6 @@ if (isset($_SESSION['wrong_credentials'])) {
             <a href="#">Crear una Cuenta</a>
         </form>
     </div>
+</body>
 
 <?php include('includes/footer.php'); ?>
