@@ -89,3 +89,18 @@
     color: rgb(144, 190, 117) !important;
 }
 
+#username {
+    color: #fff; 
+}
+
+#email {
+    color: #fff; 
+}
+
+#password {
+    color: #fff; 
+}
+
+#confirmPassword {
+    color: #fff; 
+}
