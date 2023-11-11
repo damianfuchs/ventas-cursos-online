@@ -49,8 +49,8 @@ if(!isset($_SESSION['username'])){
     necesidades, cubriendo desde Python hasta JavaScript y más. Nuestros instructores expertos te guiarán a través de lecciones prácticas y proyectos emocionantes. Únete a 
     nuestra comunidad colaborativa y comienza tu viaje hacia el dominio de la programación. ¡Prepárate para escribir el código de tu éxito! ¡Comienza hoy mismo!</p><br>
     
-    <form action="cart.php" method="post">
-        <input type="submit" value="Ver Cursos!" formaction="cart.php">
+    <form action="cursos.php" method="post">
+        <input type="submit" value="Ver Cursos!" formaction="cursos.php">
     </form>
 
 </div>

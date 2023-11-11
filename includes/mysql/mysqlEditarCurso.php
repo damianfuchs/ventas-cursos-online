@@ -1,53 +1,38 @@
 <?php
-// Establece la conexión a la base de datos (ajusta los valores según tu configuración)
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "TPPA";
+require_once 'conexionDB.php';
+ini_set('display_errors', 1); 
+session_start();
 
-if(($_POST['action'] == 'edit') && !empty($_POST['id'])){ 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+if(!empty($_POST) && !empty($_SESSION))
+{
+    $con = new connect('localhost','root','','TPPA');
+    try{
+        $dbConnection = $con->conectar();
+    } catch (Exception $e){
+        $_SESSION['unexpected_error_title']="Ocurrió un error inesperado";
+        $_SESSION['unexpected_error']="Intente mas tarde.";
+        header('Location: ../../register.php');
+    }
     $id = $_POST['id'];
-    $nuevoNombre = $_POST['nombreCurso'];
+    $nuevoNombre = $_POST['nuevoCurso'];
     $nuevaDescripcion = $_POST['descripcionCurso'];
     $nuevaImagen = $_POST['imagenCurso'];
-    $nuevaDuracion = $_POST['duracionCurso'];
+    $nuevaDuracion = $_POST['nuevaDuracion'];
     $sql = "UPDATE cursos SET nombreCurso=?, descripcionCurso=?, imagenCurso=?, duracionCurso=? WHERE id=?";
+    $stmt = $dbConnection->prepare($sql);
+    $stmt->bind_param("sssii", $nuevoNombre, $nuevaDescripcion, $nuevaImagen, $nuevaDuracion, $id);
 
-// Prepara la sentencia
-$stmt = $conn->prepare($sql);
+    if ($stmt->execute()) {
+        echo "Actualización exitosa";
+    } else {
+        echo "Error en la actualización: " . $stmt->error;
+    }
 
-// Vincula los parámetros
-$stmt->bind_param("sssi", $nuevoNombre, $nuevaDescripcion, $nuevaImagen, $nuevaDuracion, $id);
-
-// Ejecuta la sentencia
-if ($stmt->execute()) {
-    echo "Actualización exitosa";
-} else {
-    echo "Error en la actualización: " . $stmt->error;
-}
-
-// Cierra la conexión
-$stmt->close();
-$conn->close();
-$response = array( 
-    'status' => 1, 
-    'msg' => 'Member data has been updated successfully.', 
-    'data' => $userData 
-); 
-echo json_encode($response);
+    $stmt->close();
+  
+    
 }
 
 
-
-// Verifica la conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
-
-// Recibe los datos del formulario (ajusta los nombres según tu formulario)
-
-
-// Sentencia SQL preparada
 
 ?>

@@ -1,6 +1,7 @@
 <?php
 require_once 'conexionDB.php';
 ini_set('display_errors', 1);
+session_start();
 
 if(!empty($_POST) && !empty($_SESSION)){
     if(isset($_SESSION['op'])){
@@ -14,7 +15,6 @@ if(!empty($_POST) && !empty($_SESSION)){
         }
         $id = $_POST['id'];
         $sql = "SELECT id, nombreCurso, descripcionCurso, imagenCurso, duracionCurso FROM cursos WHERE id = ?";
-        var_dump($sql);
         $stmt = $dbConnection->prepare($sql);
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -23,7 +23,7 @@ if(!empty($_POST) && !empty($_SESSION)){
         while ($row = $result->fetch_assoc()) {
             $data[] = $row;
         }
-        return $data;
+        echo json_encode($data);
 
         
     } else {

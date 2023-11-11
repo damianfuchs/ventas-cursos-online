@@ -154,7 +154,7 @@ if(!isset($_SESSION['username'])){
                     </div>
                     <!-- Agrega más campos según sea necesario -->
                     <input type="hidden" id="cursoId" name="cursoId">
-                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    <button type="submit" class="guardar btn btn-primary">Guardar Cambios</button>
                 </form>
             </div>
         </div>
@@ -187,7 +187,8 @@ if(!isset($_SESSION['username'])){
             var descNueva = $('#nuevaDescripcionCurso').val();
             var imgNueva = $('#nuevaImagenCurso').val();
             var durNueva = $('#nuevaDuracionCurso').val();
-            actualizarCurso(id, nuevoNombreCurso);
+            console.log(id + " JAJASJ NDEA");
+            actualizarCurso(id, nombreNuevo, descNueva, imgNueva, durNueva);
         });
 
         function abrirFormularioEdicion(id) {
@@ -198,14 +199,13 @@ if(!isset($_SESSION['username'])){
             $('#modalEdicion').modal('show');
         }
 
-        function actualizarCurso(id, nuevoNombreCurso) {
+        function actualizarCurso(id, nuevoNombreCurso, nuevaDescripcionCurso, nuevaImagenCurso, nuevaDuracionCurso) {
             // Lógica para enviar la solicitud AJAX de actualización
             $.ajax({
-                url: 'editar_curso.php',
+                url: 'includes/mysql/mysqlEditarCurso.php',
                 method: 'POST',
-                data: { 'id': id, 'nuevo_nombre_curso': nuevoNombreCurso },
+                data: { 'id': id, 'nuevoCurso': nuevoNombreCurso, 'descripcionCurso': nuevaDescripcionCurso, 'imagenCurso': nuevaImagenCurso, 'nuevaDuracion': nuevaDuracionCurso },
                 success: function (response) {
-                    console.log(response);
                     Swal.fire({
                         title: "Exito",
                         text: response,
@@ -214,7 +214,7 @@ if(!isset($_SESSION['username'])){
                     // Actualiza la tabla después de la edición
                     // Cierra el formulario de edición (modal)
                     $('#modalEdicion').modal('hide');
-                    location.reload(true);
+                    setTimeout(function(){ window.location.reload(true); }, 5000);
                 },
                 error: function (error) {
                     Swal.fire({
@@ -258,14 +258,15 @@ if(!isset($_SESSION['username'])){
                 url: 'includes/mysql/mysqlGetCurso.php', // Cambia esto al script que obtiene los datos del curso por ID
                 method: 'POST',
                 data: { 'id': id },
+                datatype: 'json',
                 success: function (data) {
-                    console.log(data);
+                    let json = JSON.parse(data);
                    // Llenar el formulario con los datos obtenidos
-                    $('#cursoId').val(data.id);
-                    $('#nuevoNombreCurso').val(data.nombreCurso);
-                    $('#nuevaDescripcionCurso').val(data.descripcionCurso);
-                    $('#nuevaImagenCurso').val(data.imagenCurso);
-                    $('#nuevaDuracionCurso').val(data.duracionCurso);
+                    $('#cursoId').val(json[0].id);
+                    $('#nuevoNombreCurso').val(json[0].nombreCurso);
+                    $('#nuevaDescripcionCurso').val(json[0].descripcionCurso);
+                    $('#nuevaImagenCurso').val(json[0].imagenCurso);
+                    $('#nuevaDuracionCurso').val(json[0].duracionCurso);
                     // Puedes agregar más campos según sea necesario
                 },
                 error: function (error) {
