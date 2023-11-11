@@ -15,7 +15,7 @@ function getAllCursosUsuario(){
         $sqlID="SELECT id FROM usuarios WHERE username = '$userExistente'";
         $idDB=mysqli_fetch_assoc(mysqli_query($dbConnection,$sqlID));
         $idUsuario = $idDB['id'];
-        $sql = "SELECT DISTINCT id, nombreCurso, descripcionCurso, duracionCurso from cursos INNER JOIN usuarios_cursos ON idUsuario = '$idUsuario'";
+        $sql = "SELECT DISTINCT id, nombreCurso, descripcionCurso, duracionCurso from cursos INNER JOIN usuarios_cursos ON idUsuario = '$idUsuario' WHERE usuarios_cursos.idCurso = id";
         $result = $dbConnection->query($sql);
         $data = array();
         while ($row = $result->fetch_assoc()) {
