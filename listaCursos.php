@@ -165,6 +165,10 @@ if(!isset($_SESSION['username'])){
             abrirFormularioEdicion(id);
         });
 
+        $(".close").on('click', function() {
+            $('#modalEdicion').modal('hide');
+        });
+
         $('#formularioEdicion').submit(function (e) {
             e.preventDefault();
             var id = $('#cursoId').val();
