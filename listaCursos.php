@@ -13,7 +13,6 @@
 
 require_once 'includes/mysql/mysqlGetCursos.php';
 require_once 'includes/alert.php';
-// Llama a la función para obtener los datos
 $data = consultarCursos();
 if(!isset($_SESSION['username'])){
     $_SESSION['not_signed_title'] = "Error";
@@ -48,11 +47,8 @@ if(!isset($_SESSION['username'])){
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>DataTables.js</title>
-        <!-- Bootstrap-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
-        <!-- DataTable -->
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
-        <!-- Font Awesome -->
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -60,7 +56,6 @@ if(!isset($_SESSION['username'])){
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
-        <!-- Custom CSS -->
         <link rel="stylesheet" href='estilos/listaCursos.css'>
     </head>
     <body>
@@ -84,7 +79,6 @@ if(!isset($_SESSION['username'])){
                         </thead>
                         <tbody>
                             <?php
-                            // Imprime los datos en la tabla
                                 foreach ($data as $row) {
                                     echo "<tr>";
                                     echo "<td>{$row['id']}</td>";
@@ -92,7 +86,6 @@ if(!isset($_SESSION['username'])){
                                     echo "<td>{$row['descripcionCurso']}</td>";
                                     echo "<td>{$row['imagenCurso']}</td>";
                                     echo "<td>{$row['duracionCurso']} horas</td>";
-                                    // Agrega más columnas según tus necesidades
                                     echo "<td>";
                                     echo "<button class=\"editar btn btn-sm btn-primary\" data-id='{$row['id']}'><i class=\"fa-solid fa-pencil\"></i></button>";
                                     echo "</td>";
@@ -109,20 +102,14 @@ if(!isset($_SESSION['username'])){
             </div>
             
             <form action="addCourse.php" method="post">
-                <!-- Tus otros campos del formulario pueden ir aquí -->
-
                 <input type="submit" value="Agregar Curso" formaction="addCourse.php">
             </form>
 
         </div>
-        <!-- Bootstrap-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-        <!-- jQuery -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <!-- DataTable -->
         <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-        <!-- Custom JS -->
         
     <div class="modal fade" id="modalEdicion" tabindex="-1" role="dialog" aria-labelledby="modalEdicionLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -134,7 +121,6 @@ if(!isset($_SESSION['username'])){
                 </button>
             </div>
             <div class="modal-body">
-                <!-- Formulario de Edición -->
                 <form id="formularioEdicion">
                     <div class="form-group">
                         <label for="nuevoNombreCurso">Nuevo Nombre del Curso:</label>
@@ -152,7 +138,6 @@ if(!isset($_SESSION['username'])){
                         <label for="nuevaDuracionCurso">Nueva Duracion del Curso:</label>
                         <input type="text" class="form-control" id="nuevaDuracionCurso" name="nuevaDuracionCurso" required>
                     </div>
-                    <!-- Agrega más campos según sea necesario -->
                     <input type="hidden" id="cursoId" name="cursoId">
                     <button type="submit" class="guardar btn btn-primary">Guardar Cambios</button>
                 </form>
@@ -192,15 +177,11 @@ if(!isset($_SESSION['username'])){
         });
 
         function abrirFormularioEdicion(id) {
-            // Puedes cargar los datos actuales del curso en el formulario aquí
-            // En este ejemplo, simplemente establecemos el ID del curso en un campo oculto
             $('#cursoId').val(id);
-            // Abre el modal de edición
             $('#modalEdicion').modal('show');
         }
 
         function actualizarCurso(id, nuevoNombreCurso, nuevaDescripcionCurso, nuevaImagenCurso, nuevaDuracionCurso) {
-            // Lógica para enviar la solicitud AJAX de actualización
             $.ajax({
                 url: 'includes/mysql/mysqlEditarCurso.php',
                 method: 'POST',
@@ -211,8 +192,6 @@ if(!isset($_SESSION['username'])){
                         text: response,
                         icon: "success"
                     });
-                    // Actualiza la tabla después de la edición
-                    // Cierra el formulario de edición (modal)
                     $('#modalEdicion').modal('hide');
                     setTimeout(function(){ window.location.reload(true); }, 5000);
                 },
@@ -228,17 +207,15 @@ if(!isset($_SESSION['username'])){
 
         function eliminarCurso(id) {
             $.ajax({
-                url: 'includes/mysql/mysqlEliminarCurso.php', // Archivo PHP que manejará la eliminación
+                url: 'includes/mysql/mysqlEliminarCurso.php',
                 method: 'POST',
                 data: { 'id': id },
                 success: function (response) {
-                    // Maneja la respuesta del servidor si es necesario
                     Swal.fire({
                         title: "Error",
                         text: response,
                         icon: "success"
                     });
-                    // Actualiza la tabla si es necesario
                     setTimeout(function(){ window.location.reload(true); }, 5000);
                 },
                 error: function (error) {
@@ -253,21 +230,18 @@ if(!isset($_SESSION['username'])){
 
         function cargarDatosEdicion(id) {
             console.log(id);
-            // Realizar una llamada AJAX para obtener los datos del curso
             $.ajax({
-                url: 'includes/mysql/mysqlGetCurso.php', // Cambia esto al script que obtiene los datos del curso por ID
+                url: 'includes/mysql/mysqlGetCurso.php',
                 method: 'POST',
                 data: { 'id': id },
                 datatype: 'json',
                 success: function (data) {
                     let json = JSON.parse(data);
-                   // Llenar el formulario con los datos obtenidos
                     $('#cursoId').val(json[0].id);
                     $('#nuevoNombreCurso').val(json[0].nombreCurso);
                     $('#nuevaDescripcionCurso').val(json[0].descripcionCurso);
                     $('#nuevaImagenCurso').val(json[0].imagenCurso);
                     $('#nuevaDuracionCurso').val(json[0].duracionCurso);
-                    // Puedes agregar más campos según sea necesario
                 },
                 error: function (error) {
                     console.error('Error al cargar datos de edición', error);

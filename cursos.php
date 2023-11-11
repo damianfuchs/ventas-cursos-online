@@ -18,7 +18,6 @@ if(!isset($_SESSION['op'])){
 require_once 'includes/mysql/mysqlGetCursos.php';
 require_once 'includes/mysql/mysqlGetCursosUsuario.php';
 require_once 'includes/alert.php';
-// Llama a la función para obtener los datos
 $data = consultarCursos();
 $cursosUsuarios = getCursosUsuario();
 $cursosArray = array();
