@@ -1,6 +1,7 @@
 # Sistema de Cursos
 
 Un sistema básico para mostrar diferentes cursos.
+Proyecto final de la materia Programación Avanzada, de la carrera Analista en Sistemas.
 
 ## Características
 
